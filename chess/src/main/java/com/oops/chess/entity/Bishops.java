@@ -1,4 +1,4 @@
 package com.oops.chess.entity;
 
-public class Bishops {
+public class Bishops  extends Piece{
 }
