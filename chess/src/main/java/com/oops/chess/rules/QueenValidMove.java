@@ -2,17 +2,13 @@ package com.oops.chess.rules;
 
 import com.oops.chess.entity.Axis;
 
-public class QueenValidMove {
-    private int x;
-    private int y;
+public class QueenValidMove implements ValidMove {
 
-    private boolean validOptions(Axis source, Axis dest){
+    public boolean validOptions(Axis source, Axis dest) {
 
-        if(source.getRow()==dest.getRow()){
-
-        }else if(source.getCol()==dest.getCol()){
-
-        }else if(source.getRow()==dest.getRow())
-
+        return (source.getRow() == dest.getRow())
+                || (source.getCol() == dest.getCol())
+                || (source.getRow() == dest.getRow()) ||
+                (Math.abs((source.getRow() - dest.getRow())) == Math.abs((source.getCol() - dest.getCol())));
     }
 }

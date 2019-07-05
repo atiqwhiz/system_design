@@ -1,5 +1,11 @@
 package com.oops.chess.rules;
 
-public class RooksValidMove {
-    private static final int[][] options = {{2, -1}, {2, 1}, {-2, 1}, {-2, -1}};
+import com.oops.chess.entity.Axis;
+
+public class RooksValidMove implements ValidMove{
+
+    @Override
+    public boolean validOptions(Axis source, Axis dest) {
+        return false;
+    }
 }

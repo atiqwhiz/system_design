@@ -1,9 +1,6 @@
 package com.oops.chess.game;
 
-import com.oops.chess.entity.Board;
-import com.oops.chess.entity.BoardStatus;
-import com.oops.chess.entity.Piece;
-import com.oops.chess.entity.Player;
+import com.oops.chess.entity.*;
 import lombok.Data;
 
 @Data
@@ -12,19 +9,20 @@ public class Game {
     Player player1;
     Player player2;
 
-    public void startGame() {
-        board.setBoard();  //initialized board
-        while (true) {
-            Piece piece = null;
-            board.makeMove(player1,piece);
-            checkBoardStatus(board);
-            board.makeMove(player2,piece);
-            checkBoardStatus(board);
-        }
+    private Game() {
     }
 
-    private BoardStatus checkBoardStatus(Board board) {
+    public void initializeGame() {
+        board.setBoard();
+    }
 
-        return BoardStatus.WIN;
+    public BoardStatus playTurn(Player player, Piece piece, Axis destination) {
+
+        if (!board.isValidMove(player, piece, destination) || !board.isValidPieceMove(piece, destination)) {
+            return BoardStatus.INVALID_MOVE;
+        } else {
+            board.makeMove(player, piece, destination);
+            return board.checkBoardStatus(board);
+        }
     }
 }

@@ -5,6 +5,7 @@ import lombok.Data;
 
 @Data
 abstract public class Piece {
-    private String name;
+    private PieceType pieceType;
     private Color color;
+    private Axis axis;
 }

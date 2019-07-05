@@ -1,5 +1,10 @@
 package com.oops.chess.rules;
 
-public class PawnsValidMove {
-    private static final int[][] options = {{1, 0}};
+import com.oops.chess.entity.Axis;
+
+public class PawnsValidMove  implements ValidMove {
+    @Override
+    public boolean validOptions(Axis source, Axis dest) {
+        return false;
+    }
 }
